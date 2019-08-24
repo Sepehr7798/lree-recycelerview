@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import sepehr.lreerecyclerview.collections.ListObserver
 import sepehr.lreerecyclerview.collections.LiveList
 
-class BindableRecyclerView @JvmOverloads constructor(
+open class BindableRecyclerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
-    var data: LiveList<*>? = null
+    open var data: LiveList<*>? = null
         set(value) {
             field = value
             bind()
