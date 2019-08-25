@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">LREERecyclerView</string>
+    <string name="app_name">LREE View</string>
+    <string name="lree_loading">Loading…</string>
+    <string name="lree_error">Error!</string>
+    <string name="lree_empty">Empty!</string>
+    <string name="lree_retry">Retry</string>
 </resources>
