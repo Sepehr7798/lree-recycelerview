@@ -31,12 +31,13 @@ class LREERecyclerView @JvmOverloads constructor(
     var errorView: View = inflater.inflate(R.layout.layout_empty_error, this, false)
         set(value) {
             field = value
-            retryButton = errorView.findViewById(R.id.lree_retry_button)
+            retryButton = value.findViewById(R.id.lree_retry_button)
         }
 
     var emptyView: View = inflater.inflate(R.layout.layout_empty_error, this, false)
 
     var retryButton: Button = errorView.findViewById(R.id.lree_retry_button)
+        private set
 
     init {
         context.theme.obtainStyledAttributes(
