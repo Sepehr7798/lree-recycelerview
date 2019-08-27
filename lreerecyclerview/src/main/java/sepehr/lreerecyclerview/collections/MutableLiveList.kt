@@ -1,8 +1,8 @@
 package sepehr.lreerecyclerview.collections
 
 import android.os.Looper
-import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -10,14 +10,12 @@ open class MutableLiveList<T>(override val list: MutableList<T> = mutableListOf(
     MutableList<T> {
 
     constructor(
-        scope: LifecycleCoroutineScope,
+        scope: CoroutineScope,
         context: CoroutineDispatcher = Dispatchers.Main,
         init: suspend MutableLiveList<T>.() -> Unit
     ) : this() {
-        scope.launchWhenCreated {
-            launch(context) {
-                init()
-            }
+        scope.launch(context) {
+            init()
         }
     }
 

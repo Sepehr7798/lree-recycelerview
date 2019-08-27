@@ -1,13 +1,13 @@
 package sepehr.lreerecyclerview
 
-import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import sepehr.lreerecyclerview.collections.MutableLiveList
 
 class LREEData<T>(
-    scope: LifecycleCoroutineScope,
+    scope: CoroutineScope,
     context: CoroutineDispatcher = Dispatchers.Main,
     private val init: suspend MutableLiveList<T>.() -> Boolean
 ) {
