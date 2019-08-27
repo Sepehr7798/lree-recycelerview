@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.res.*
@@ -16,7 +15,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.lang.Error
 
 class LREERecyclerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -85,14 +83,25 @@ class LREERecyclerView @JvmOverloads constructor(
                     else View.GONE
                 retryButton.text = getStringOrThrow(R.styleable.LREERecyclerView_lree_retry_text)
 
-                when (getIntegerOrThrow(R.styleable.LREERecyclerView_lree_layoutManager)) {
+                val reverseLayout =
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_layout_manager_reverse)
+                val orientation =
+                    when (getIntegerOrThrow(R.styleable.LREERecyclerView_lree_layout_manager_orientation)) {
+                        0 -> RecyclerView.VERTICAL
+                        1 -> RecyclerView.HORIZONTAL
+                        else -> throw IllegalArgumentException("Illegal orientation")
+                    }
+                when (getIntegerOrThrow(R.styleable.LREERecyclerView_lree_layout_manager)) {
                     0 -> {
-                        recyclerView.layoutManager = LinearLayoutManager(context)
+                        recyclerView.layoutManager = LinearLayoutManager(
+                            context, orientation, reverseLayout
+                        )
                     }
                     1 -> {
                         val c =
-                            getIntegerOrThrow(R.styleable.LREERecyclerView_lree_grid_columns)
-                        recyclerView.layoutManager = GridLayoutManager(context, c)
+                            getIntegerOrThrow(R.styleable.LREERecyclerView_lree_layout_manager_grid_columns)
+                        recyclerView.layoutManager =
+                            GridLayoutManager(context, c, orientation, reverseLayout)
                     }
                 }
             } finally {

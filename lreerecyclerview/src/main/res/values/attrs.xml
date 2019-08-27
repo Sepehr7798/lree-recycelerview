@@ -3,10 +3,12 @@
     <declare-styleable name="LREERecyclerView">
         <attr name="lree_loading_text" format="string" />
         <attr name="lree_loading_text_visible" format="boolean" />
+
         <attr name="lree_error_icon" format="reference" />
         <attr name="lree_error_tint" format="color" />
         <attr name="lree_error_text" format="string" />
         <attr name="lree_error_text_visible" format="boolean" />
+
         <attr name="lree_empty_icon" format="reference" />
         <attr name="lree_empty_tint" format="color" />
         <attr name="lree_empty_text" format="string" />
@@ -15,10 +17,15 @@
         <attr name="lree_retry_enabled" format="boolean" />
         <attr name="lree_retry_text" format="string" />
 
-        <attr name="lree_layoutManager" format="enum">
+        <attr name="lree_layout_manager" format="enum">
             <enum name="linear" value="0" />
             <enum name="grid" value="1" />
         </attr>
-        <attr name="lree_grid_columns" format="integer" />
+        <attr name="lree_layout_manager_orientation" format="enum">
+            <enum name="vertical" value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+        <attr name="lree_layout_manager_grid_columns" format="integer" />
+        <attr name="lree_layout_manager_reverse" format="boolean" />
     </declare-styleable>
 </resources>
