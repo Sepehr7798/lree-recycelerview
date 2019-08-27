@@ -44,23 +44,35 @@ class LREERecyclerView @JvmOverloads constructor(
             0, R.style.DefaultStyle
         ).apply {
             try {
+                setVisibleOrGone(
+                    errorView,
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_show_error)
+                )
+                setVisibleOrGone(
+                    emptyView,
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_show_empty)
+                )
+
                 loadingView.findViewById<TextView>(R.id.lree_loading_text).run {
                     text = getStringOrThrow(R.styleable.LREERecyclerView_lree_loading_text)
-                    visibility =
-                        if (getBooleanOrThrow(R.styleable.LREERecyclerView_lree_loading_text_visible)) View.VISIBLE
-                        else View.GONE
+                    setVisibleOrGone(
+                        this,
+                        getBooleanOrThrow(R.styleable.LREERecyclerView_lree_loading_text_visible)
+                    )
                 }
                 errorView.findViewById<TextView>(R.id.lree_empty_error_text).run {
                     text = getStringOrThrow(R.styleable.LREERecyclerView_lree_error_text)
-                    visibility =
-                        if (getBooleanOrThrow(R.styleable.LREERecyclerView_lree_error_text_visible)) View.VISIBLE
-                        else View.GONE
+                    setVisibleOrGone(
+                        this,
+                        getBooleanOrThrow(R.styleable.LREERecyclerView_lree_error_text_visible)
+                    )
                 }
                 emptyView.findViewById<TextView>(R.id.lree_empty_error_text).run {
                     text = getStringOrThrow(R.styleable.LREERecyclerView_lree_empty_text)
-                    visibility =
-                        if (getBooleanOrThrow(R.styleable.LREERecyclerView_lree_empty_text_visible)) View.VISIBLE
-                        else View.GONE
+                    setVisibleOrGone(
+                        this,
+                        getBooleanOrThrow(R.styleable.LREERecyclerView_lree_empty_text_visible)
+                    )
                 }
 
                 errorView.findViewById<ImageView>(R.id.lree_empty_error_icon)
@@ -78,9 +90,10 @@ class LREERecyclerView @JvmOverloads constructor(
                         }
                     })
 
-                retryButton.visibility =
-                    if (getBooleanOrThrow(R.styleable.LREERecyclerView_lree_retry_enabled)) View.VISIBLE
-                    else View.GONE
+                setVisibleOrGone(
+                    retryButton,
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_retry_enabled)
+                )
                 retryButton.text = getStringOrThrow(R.styleable.LREERecyclerView_lree_retry_text)
 
                 val reverseLayout =
@@ -155,4 +168,13 @@ class LREERecyclerView @JvmOverloads constructor(
                 }
             })
         }
+
+
+    private fun setVisibleOrGone(view: View, visible: Boolean) {
+        view.visibility =
+            if (visible)
+                View.VISIBLE
+            else
+                View.GONE
+    }
 }

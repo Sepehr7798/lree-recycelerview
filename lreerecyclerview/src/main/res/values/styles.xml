@@ -4,14 +4,20 @@
     <style name="DefaultStyle">
         <item name="lree_loading_text">@string/lree_loading</item>
         <item name="lree_loading_text_visible">true</item>
+
+        <item name="show_error">true</item>
         <item name="lree_error_icon">@drawable/ic_error_outline_red_48dp</item>
         <item name="lree_error_text">@string/lree_error</item>
         <item name="lree_error_text_visible">true</item>
+
+        <item name="show_empty">true</item>
         <item name="lree_empty_icon">@drawable/ic_error_outline_gray_48dp</item>
         <item name="lree_empty_text">@string/lree_empty</item>
         <item name="lree_empty_text_visible">true</item>
+
         <item name="lree_retry_enabled">false</item>
         <item name="lree_retry_text">@string/lree_retry</item>
+
         <item name="lree_layout_manager">linear</item>
         <item name="lree_layout_manager_orientation">vertical</item>
         <item name="lree_layout_manager_reverse">false</item>
