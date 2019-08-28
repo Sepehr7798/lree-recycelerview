@@ -14,12 +14,8 @@ class LREEData<T>(
 
     val state: MutableLiveData<LREEState> = MutableLiveData()
 
-    val data: MutableLiveList<T>
-
-    init {
-        data = MutableLiveList(scope, context) {
-            reload()
-        }
+    val data: MutableLiveList<T> = MutableLiveList(scope, context) {
+        reload()
     }
 
     suspend fun reload() {

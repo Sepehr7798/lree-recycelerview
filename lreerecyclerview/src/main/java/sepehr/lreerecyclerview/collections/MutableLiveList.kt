@@ -6,8 +6,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-open class MutableLiveList<T>(override val list: MutableList<T> = mutableListOf()) : LiveList<T>(),
-    MutableList<T> {
+open class MutableLiveList<T>(override val list: MutableList<T> = mutableListOf()) :
+    LiveList<T>(list), MutableList<T> {
 
     constructor(
         scope: CoroutineScope,
