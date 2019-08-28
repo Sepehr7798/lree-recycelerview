@@ -5,12 +5,12 @@
         <item name="lree_loading_text">@string/lree_loading</item>
         <item name="lree_loading_text_visible">true</item>
 
-        <item name="show_error">true</item>
+        <item name="lree_show_error">true</item>
         <item name="lree_error_icon">@drawable/ic_error_outline_red_48dp</item>
         <item name="lree_error_text">@string/lree_error</item>
         <item name="lree_error_text_visible">true</item>
 
-        <item name="show_empty">true</item>
+        <item name="lree_show_empty">true</item>
         <item name="lree_empty_icon">@drawable/ic_error_outline_gray_48dp</item>
         <item name="lree_empty_text">@string/lree_empty</item>
         <item name="lree_empty_text_visible">true</item>

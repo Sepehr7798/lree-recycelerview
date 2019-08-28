@@ -46,11 +46,11 @@ class LREERecyclerView @JvmOverloads constructor(
             try {
                 setVisibleOrGone(
                     errorView,
-                    getBooleanOrThrow(R.styleable.LREERecyclerView_show_error)
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_show_error)
                 )
                 setVisibleOrGone(
                     emptyView,
-                    getBooleanOrThrow(R.styleable.LREERecyclerView_show_empty)
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_show_empty)
                 )
 
                 loadingView.findViewById<TextView>(R.id.lree_loading_text).run {

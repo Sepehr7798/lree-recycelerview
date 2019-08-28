@@ -4,13 +4,13 @@
         <attr name="lree_loading_text" format="string" />
         <attr name="lree_loading_text_visible" format="boolean" />
 
-        <attr name="show_error" format="boolean" />
+        <attr name="lree_show_error" format="boolean" />
         <attr name="lree_error_icon" format="reference" />
         <attr name="lree_error_tint" format="color" />
         <attr name="lree_error_text" format="string" />
         <attr name="lree_error_text_visible" format="boolean" />
 
-        <attr name="show_empty" format="boolean" />
+        <attr name="lree_show_empty" format="boolean" />
         <attr name="lree_empty_icon" format="reference" />
         <attr name="lree_empty_tint" format="color" />
         <attr name="lree_empty_text" format="string" />
