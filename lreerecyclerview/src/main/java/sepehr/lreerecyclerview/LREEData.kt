@@ -15,10 +15,10 @@ class LREEData<T>(
     val state: MutableLiveData<LREEState> = MutableLiveData()
 
     val data: MutableLiveList<T> = MutableLiveList(scope, context) {
-        reload()
+        reload(init)
     }
 
-    suspend fun reload() {
+    suspend fun reload(init: suspend MutableLiveList<T>.() -> Boolean = this.init) {
         state.value = LREEState.LOADING
         state.value = if (!init(data)) {
             LREEState.ERROR
