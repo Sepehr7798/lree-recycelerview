@@ -1,2 +1,2 @@
-include ':app', ':lree-view'
+include ':app', ':lree-recyclerview'
 rootProject.name='LREE RecyclerView'

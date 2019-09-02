@@ -36,51 +36,51 @@ class LREERecyclerView @JvmOverloads constructor(
     init {
         context.theme.obtainStyledAttributes(
             attrs,
-            R.styleable.LREEView,
+            R.styleable.LREERecyclerView,
             0, R.style.DefaultStyle
         ).apply {
             try {
                 setVisibleOrGone(
                     errorView,
-                    getBooleanOrThrow(R.styleable.LREEView_lree_show_error)
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_show_error)
                 )
                 setVisibleOrGone(
                     emptyView,
-                    getBooleanOrThrow(R.styleable.LREEView_lree_show_empty)
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_show_empty)
                 )
 
                 loadingView.findViewById<TextView>(R.id.lree_loading_text).run {
-                    text = getStringOrThrow(R.styleable.LREEView_lree_loading_text)
+                    text = getStringOrThrow(R.styleable.LREERecyclerView_lree_loading_text)
                     setVisibleOrGone(
                         this,
-                        getBooleanOrThrow(R.styleable.LREEView_lree_loading_text_visible)
+                        getBooleanOrThrow(R.styleable.LREERecyclerView_lree_loading_text_visible)
                     )
                 }
                 emptyView.findViewById<TextView>(R.id.lree_empty_error_text).run {
-                    text = getStringOrThrow(R.styleable.LREEView_lree_empty_text)
+                    text = getStringOrThrow(R.styleable.LREERecyclerView_lree_empty_text)
                     setVisibleOrGone(
                         this,
-                        getBooleanOrThrow(R.styleable.LREEView_lree_empty_text_visible)
+                        getBooleanOrThrow(R.styleable.LREERecyclerView_lree_empty_text_visible)
                     )
                 }
                 errorView.findViewById<TextView>(R.id.lree_empty_error_text).run {
-                    text = getStringOrThrow(R.styleable.LREEView_lree_error_text)
+                    text = getStringOrThrow(R.styleable.LREERecyclerView_lree_error_text)
                     setVisibleOrGone(
                         this,
-                        getBooleanOrThrow(R.styleable.LREEView_lree_error_text_visible)
+                        getBooleanOrThrow(R.styleable.LREERecyclerView_lree_error_text_visible)
                     )
                 }
 
                 emptyView.findViewById<ImageView>(R.id.lree_empty_error_icon)
-                    .setImageDrawable(getDrawableOrThrow(R.styleable.LREEView_lree_empty_icon).apply {
-                        val c = getColor(R.styleable.LREEView_lree_empty_tint, 0)
+                    .setImageDrawable(getDrawableOrThrow(R.styleable.LREERecyclerView_lree_empty_icon).apply {
+                        val c = getColor(R.styleable.LREERecyclerView_lree_empty_tint, 0)
                         if (c > 0) {
                             DrawableCompat.setTint(this, c)
                         }
                     })
                 errorView.findViewById<ImageView>(R.id.lree_empty_error_icon)
-                    .setImageDrawable(getDrawableOrThrow(R.styleable.LREEView_lree_error_icon).apply {
-                        val c = getColor(R.styleable.LREEView_lree_error_tint, 0)
+                    .setImageDrawable(getDrawableOrThrow(R.styleable.LREERecyclerView_lree_error_icon).apply {
+                        val c = getColor(R.styleable.LREERecyclerView_lree_error_tint, 0)
                         if (c > 0) {
                             DrawableCompat.setTint(this, c)
                         }
@@ -88,9 +88,9 @@ class LREERecyclerView @JvmOverloads constructor(
 
                 setVisibleOrGone(
                     retryButton,
-                    getBooleanOrThrow(R.styleable.LREEView_lree_retry_enabled)
+                    getBooleanOrThrow(R.styleable.LREERecyclerView_lree_retry_enabled)
                 )
-                retryButton.text = getStringOrThrow(R.styleable.LREEView_lree_retry_text)
+                retryButton.text = getStringOrThrow(R.styleable.LREERecyclerView_lree_retry_text)
             } finally {
                 recycle()
             }
