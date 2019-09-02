@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="LREERecyclerView">
+    <declare-styleable name="LREEView">
         <attr name="lree_loading_text" format="string" />
         <attr name="lree_loading_text_visible" format="boolean" />
 
