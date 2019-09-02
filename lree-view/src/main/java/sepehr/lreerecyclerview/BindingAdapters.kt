@@ -8,12 +8,12 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("app:adapter")
     fun bindAdapter(recyclerView: LREERecyclerView, adapter: RecyclerView.Adapter<*>) {
-        recyclerView.recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
     }
 
     @JvmStatic
     @BindingAdapter("app:data")
     fun bindData(recyclerView: LREERecyclerView, data: LREEData<*>) {
-        recyclerView.data = data
+        recyclerView.lreeData = data
     }
 }

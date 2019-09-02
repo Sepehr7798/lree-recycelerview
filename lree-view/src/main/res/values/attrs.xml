@@ -18,16 +18,5 @@
 
         <attr name="lree_retry_enabled" format="boolean" />
         <attr name="lree_retry_text" format="string" />
-
-        <attr name="lree_layout_manager" format="enum">
-            <enum name="linear" value="0" />
-            <enum name="grid" value="1" />
-        </attr>
-        <attr name="lree_layout_manager_orientation" format="enum">
-            <enum name="vertical" value="0" />
-            <enum name="horizontal" value="1" />
-        </attr>
-        <attr name="lree_layout_manager_grid_columns" format="integer" />
-        <attr name="lree_layout_manager_reverse" format="boolean" />
     </declare-styleable>
 </resources>

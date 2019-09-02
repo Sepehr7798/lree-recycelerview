@@ -24,7 +24,7 @@ open class BindableRecyclerView @JvmOverloads constructor(
     }
 
     private fun bind() {
-        if (data != null && adapter != null) {
+        if (data != null && adapter != null && adapter is Observer<*>) {
             data?.observe(context as LifecycleOwner, adapter as Observer<in List<Any?>>)
         }
     }

@@ -17,9 +17,5 @@
 
         <item name="lree_retry_enabled">false</item>
         <item name="lree_retry_text">@string/lree_retry</item>
-
-        <item name="lree_layout_manager">linear</item>
-        <item name="lree_layout_manager_orientation">vertical</item>
-        <item name="lree_layout_manager_reverse">false</item>
     </style>
 </resources>
