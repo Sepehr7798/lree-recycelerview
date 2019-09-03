@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import sepehr.lreerecyclerview.collections.LiveList
 import sepehr.lreerecyclerview.collections.MutableLiveList
 
 class LREEData<T> {
@@ -22,12 +24,12 @@ class LREEData<T> {
     constructor(
         scope: CoroutineScope,
         context: CoroutineDispatcher = Dispatchers.Main,
+        data: MutableLiveList<T> = MutableLiveList(),
         init: suspend MutableLiveList<T>.() -> Boolean
     ) {
         defaultInit = init
-        data = MutableLiveList(scope, context) {
-            reload(init)
-        }
+        this.data = data
+        scope.launch(context) { reload() }
     }
 
     suspend fun reload(init: suspend MutableLiveList<T>.() -> Boolean = defaultInit) {

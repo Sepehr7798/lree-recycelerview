@@ -1,23 +1,9 @@
 package sepehr.lreerecyclerview.collections
 
 import android.os.Looper
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 open class MutableLiveList<T>(override val list: MutableList<T> = mutableListOf()) :
     LiveList<T>(list), MutableList<T> {
-
-    constructor(
-        scope: CoroutineScope,
-        context: CoroutineDispatcher = Dispatchers.Main,
-        init: suspend MutableLiveList<T>.() -> Unit
-    ) : this() {
-        scope.launch(context) {
-            init()
-        }
-    }
 
     public override fun postValue(value: List<T>?) {
         super.postValue(value)
