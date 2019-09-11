@@ -1,5 +1,6 @@
 package sepehr.lreerecyclerview
 
+import android.os.Looper
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -33,15 +34,30 @@ class LREEData<T> {
     }
 
     suspend fun reload(init: suspend MutableLiveList<T>.() -> Boolean = defaultInit) {
-        state.value = LREEState.LOADING
-        state.value = if (!init(data)) {
-            LREEState.ERROR
-        } else {
-            if (data.isEmpty()) {
-                LREEState.EMPTY
+        if (Looper.getMainLooper().thread == Thread.currentThread()) {
+            state.value = LREEState.LOADING
+            state.value = if (!init(data)) {
+                LREEState.ERROR
             } else {
-                LREEState.RESULT
+                if (data.isEmpty()) {
+                    LREEState.EMPTY
+                } else {
+                    LREEState.RESULT
+                }
             }
+        } else {
+            state.postValue(LREEState.LOADING)
+            state.postValue(
+                if (!init(data)) {
+                    LREEState.ERROR
+                } else {
+                    if (data.isEmpty()) {
+                        LREEState.EMPTY
+                    } else {
+                        LREEState.RESULT
+                    }
+                }
+            )
         }
     }
 }
